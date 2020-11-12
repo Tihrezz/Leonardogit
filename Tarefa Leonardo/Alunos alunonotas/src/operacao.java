@@ -94,7 +94,7 @@ public class operacao {
 			System.out.println("Aluno Aprovado");
 		}
 	}
-		public static void listarOrdFreq() throws IOException {
+		public static void listarAlunoDiscNotas() throws IOException {
 			
 			Scanner strInput = new Scanner(System.in);
 			Scanner strInput2 = new Scanner(System.in);
@@ -108,19 +108,22 @@ public class operacao {
 	              if(nome.equalsIgnoreCase("quit")) {
 	                  break;
 	              }
+	              System.out.println("digite a disciplina do aluno: ");
+	              String disc = strInput.next();
+	              if(nome.equalsIgnoreCase("quit")) {
+	                  break;
+	              }
 	              
-	              System.out.println("digite a freq do aluno ");
-	              long freq = strInput.nextLong();
-	              Aluno a = new Aluno(nome, freq);
+	              System.out.println("digite a nota do aluno ");
+	              double notas = strInput.nextDouble();
+	              
+	              Aluno a = new Aluno(nome, disc, notas);
 	              alunos.add(a);
 	        }
 	         for(Aluno t: alunos) {
-	              System.out.println("Nome: " + t.getNome() + "\nFreq: " + t.getFreq());
+	              System.out.println("Nome: " + t.getNome() + "\nDisciplina: " + t.getDisc() + "\nNota: " + t.getNotas());
 	              System.out.println();
 	         }
-	         Collections.sort(alunos);
-	         Collections.reverse(alunos);
-	         System.out.println("Alunos ordenados com freq decrescente:");
 	         System.out.println(alunos);
 			
 		}
