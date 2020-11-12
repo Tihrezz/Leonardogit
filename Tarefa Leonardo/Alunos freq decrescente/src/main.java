@@ -4,8 +4,8 @@ public class main {
 
 	public static void main(String[] args) throws IOException {
 		
-		operacao.calcularMedia();
-		
+		//operacao.calcularMedia();
+		operacao.listarOrdFreq();
 
 	}
 

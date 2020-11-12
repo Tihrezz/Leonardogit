@@ -1,4 +1,7 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class operacao {
@@ -7,7 +10,15 @@ public class operacao {
 	static double n2;
 	static double m;
 	static int freq;
+	static String nome;
 	static String status;
+	
+	public static String getNome() {
+		return nome;
+	}
+	public static void setNome(String nome) {
+		operacao.nome = nome;
+	}
 	public double getN1() {
 		return n1;
 	}
@@ -82,6 +93,36 @@ public class operacao {
 			status = "AP";
 			System.out.println("Aluno Aprovado");
 		}
-		
 	}
+		public static void listarOrdFreq() throws IOException {
+			
+			Scanner strInput = new Scanner(System.in);
+			Scanner strInput2 = new Scanner(System.in);
+			List<Aluno> alunos = new ArrayList();
+			
+			boolean isRunning = true;
+
+	        while(isRunning){
+	              System.out.println("digite o nome do aluno: ");
+	              String nome = strInput.next();
+	              if(nome.equalsIgnoreCase("quit")) {
+	                  break;
+	              }
+	              
+	              System.out.println("digite a freq do aluno ");
+	              long freq = strInput.nextLong();
+	              Aluno a = new Aluno(nome, freq);
+	              alunos.add(a);
+	        }
+	         for(Aluno t: alunos) {
+	              System.out.println("Nome: " + t.getNome() + "\nFreq: " + t.getFreq());
+	              System.out.println();
+	         }
+	         Collections.sort(alunos);
+	         Collections.reverse(alunos);
+	         System.out.println("Alunos ordenados com freq decrescente:");
+	         System.out.println(alunos);
+			
+		}
+		
 }
